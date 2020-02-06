@@ -47,29 +47,6 @@ class Geolocation
   private :parseData, :retrieve_data
 end
 
-dataWithKeys = lambda do |data|
-  text ="Data report: \n" 
-    data[0].each do |key, value|
-      text += "#{key}: #{value}\n"
-    end
-    return text
-end
-
-points_of_interests = lambda do |data|
-  text = "data report\n"
-  data.each do |point|
-    point.each do |key,value|
-      text += "#{key}:#{value}\n"
-    end
-    text += "-----------\n"
-  end
-  return text
-end
-
-geolocation = Geolocation.new("44fcebb8c5c660")
-puts geolocation.give_format( geolocation.points_of_interest(19.4326009, -99.1333416, 4000, 'restaurant' ), &points_of_interests)
-
-
 
 
 
