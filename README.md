@@ -44,4 +44,5 @@ To be able to use this gem, you have to create an account in the website called 
     geolocation = Geolocation.new(token)<br>
     puts geolocation.give_format( geolocation.points_of_interest(19.4326009, -99.1333416, 4000, 'restaurant' ), &points_of_interests)
 
- You can also add a second parameter in lambda to indicate the position in which you want to start, in case that the response has more than one result
+ You can also add a second parameter in lambda to indicate the position in which you want to start, in case that the response has more than one result<br>
+ For more information about the types of points of interest that you can search and other things about api you can use this link: https://locationiq.com/docs
