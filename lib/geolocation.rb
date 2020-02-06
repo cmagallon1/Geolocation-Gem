@@ -23,7 +23,8 @@ class Geolocation
     retrieve_data("https://us1.locationiq.com/v1/nearby.php?key=#{@token}&lat=#{latitude}&lon=#{longitude}&tag=#{type}&radius=#{radius}&format=json")
   end
 
-  def give_format(data, &block, position=0)
+  def give_format(data, position = 0, &block)
+    puts position
     position == 0 ? block.call(data) : block.call(data,position)
   end
   
