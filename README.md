@@ -3,13 +3,15 @@
 Geolocation is a gem which provides an easy way to retrieve information about any place that you want to
 know
 
-#Instalation
+## Instalation
 
-  To install the gem you have to execute the following command:
-  > gem install geolocation
+  To install the gem you have to execute the following command:<br>
+  ```bash 
+  $ gem install geolocation
+  ```
 
-# Usage
-To be able to use this gem, you have to create an account in the website called locationiq and get the token, this will be needed to initialize the objetc
+## Usage
+To be able to use this gem, you have to create an account in the website called locationiq and get a token, this will be needed to initialize the object
 ## Methods
 
   With this gem you have a few method that you could apply to you code:
@@ -26,23 +28,28 @@ To be able to use this gem, you have to create an account in the website called 
 ## Example
 
   You can initialize an object like this :
-  > Geolocation.new(token)
+ ```ruby
+  Geolocation.new(token)
+```
 
  Here token is the token that you get when created the account in locationiq<br>
  Because this gem tries to apply the strategy pattern the method *give_format* uses a lambda to give a format to the response done to the api based in the needs of the developer and the way in which he wants to show the data, so you can do something like this:
 
-    points_of_interests = lambda do |data|
-      text = "data report\n"
-        data.each do |point|
-         point.each do |key,value|
-       	   text += "#{key}:#{value}\n"
-        end
-        text += "-----------\n"
-        end
-      return text
-     end
-    geolocation = Geolocation.new(token)<br>
-    puts geolocation.give_format( geolocation.points_of_interest(19.4326009, -99.1333416, 4000, 'restaurant' ), &points_of_interests)
+```ruby
+points_of_interests = lambda do |data|
+  text = "data report\n"
+  data.each do |point|
+    point.each do |key,value|
+      text += "#{key}:#{value}\n"
+    end
+    text += "-----------\n"
+  end
+  return text
+end
+
+geolocation = Geolocation.new(token)
+puts geolocation.give_format( geolocation.points_of_interest(19.4326009, -99.1333416, 4000, 'restaurant' ), &points_of_interests)
+```
 
  You can also add a second parameter in lambda to indicate the position in which you want to start, in case that the response has more than one result<br>
  For more information about the types of points of interest that you can search and other things about api you can use this link: https://locationiq.com/docs
