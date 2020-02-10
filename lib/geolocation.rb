@@ -30,7 +30,7 @@ class Geolocation
   def retrieve_data(url)
     uri = URI(url)
     data = Net::HTTP.get_response(uri)
-    parseData(data.body)
+    parse_data(data.body)
   end
 
   def save_data_in_file(filename, text)
@@ -39,11 +39,11 @@ class Geolocation
     file.close   
   end
   
-  def parseData(data)
+  def parse_data(data)
     JSON.parse(data)
   end
 
-  private :parseData, :retrieve_data
+  private :parse_data, :retrieve_data
 end
 
 
