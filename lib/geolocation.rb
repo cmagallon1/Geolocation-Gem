@@ -24,7 +24,6 @@ class Geolocation
   end
 
   def give_format(data, position = 0, &block)
-    puts position
     position == 0 ? block.call(data) : block.call(data,position)
   end
   
